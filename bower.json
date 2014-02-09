@@ -1,5 +1,5 @@
 {
-  "name": "gigify",
+  "name": "Gigify",
   "private": true,
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
