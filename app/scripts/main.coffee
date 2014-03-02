@@ -1,15 +1,20 @@
+# don't really care...
 EVENTFUL_API_KEY = 'fWhzvRX8MxP35pNx'
 ECHONEST_API_KEY = 'CXWHF3RAFXNLY9EHI'
+
 EVENTFUL_ENDPOINT = 'http://api.eventful.com/json/events/search'
 ECHONEST_ENDPOINT = 'http://developer.echonest.com/api/v4/playlist/static'
+
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+loaded = false
 
 # Bind event handlers when DOM is ready
 $(document).ready ->
   $('#search-bar').keypress (event) ->
     if event.which == 13
       fetchEventData this.value
+      loaded = true
 
 
 # Fetches event data for the given location string
@@ -63,6 +68,17 @@ handleEventData = (eventData) ->
 
 # Displays event data to the user
 displayEvents = (events) ->
+  if loaded
+    $('#upcoming-shows-header').remove()
+    $('.event').remove()
+
+  h2 = $('<h2 />',
+    id: 'upcoming-shows-header'
+    html: '<hr>Upcoming Shows'
+  )
+  # $('#content').append h2
+  h2.hide().insertAfter('#spotify-player').fadeIn 1000
+
   for event in events
     div = $('<div />',
       class: 'event col-sm-6 center-block'
@@ -87,7 +103,7 @@ displayEvents = (events) ->
 
     a.append img
     div.append(a).append body
-    $('#events').append div
+    div.hide().appendTo('#events').fadeIn 1000
 
 
 # Fetches playlist data for the given Eventful artist IDs
@@ -121,16 +137,21 @@ handlePlaylistData = (playlistData) ->
 
 # Displays playlist data to the user
 displayPlaylist = (spotifyTrackIds) ->
+  $('#spotify-player').empty()
+
+  if loaded
+    $('#spotify-frame').remove()
+
   spotifyFrame = $('#spotify-frame')
   if spotifyFrame.length != 0
     spotifyFrame.appendAttr 'src', ',' + spotifyTrackIds.join(',')
   else
     $('<iframe />',
-      src: 'https://embed.spotify.com/?theme=white&uri=spotify:trackset:Gigify:' + spotifyTrackIds.join ','
+      src: 'https://embed.spotify.com/?theme=white&&view=coverart&uri=spotify:trackset:Gigify:' + spotifyTrackIds.join ','
       frameborder: '0'
       allowtransparency: 'true'
       id: 'spotify-frame'
-    ).appendTo '#spotify-player'
+    ).hide().appendTo('#spotify-player').fadeIn 1000
 
 
 # Removes duplicate elements from an array

@@ -37,6 +37,10 @@ body {
   font-family: $font-stack;
 }
 
+h1, h2 {
+  font-family: $font-stack;
+}
+
 a {
   color: $anchor-color;
   transition: color .15s ease-in-out;
@@ -49,7 +53,6 @@ a {
 #title-header,
 #description-header {
   text-align: center;
-  font-family: $font-stack;
   font-weight: 600;
   line-height: normal;
 }
@@ -67,7 +70,6 @@ a {
 #search-bar {
   border: 1px solid rgba(black, .175);
   border-radius: 3px;
-  font-family: $font-stack;
   font-size: 20px;
   height: 42px;
   margin: 20px 0;
@@ -102,13 +104,27 @@ a {
 }
 
 #spotify-player {
+  color: rgba(black, 0.1);
+  font-size: 200px;
+  line-height: 30px;
+  margin: 20px 0;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 #spotify-player iframe {
-  height: 350px;
+  height: 370px;
+  margin-bottom: 20px;
   width: 100%;
+}
+
+#upcoming-shows-header {
+  font-weight: 400;
+  margin: 20px 0;
+  text-align: center;
+}
+
+#events {
+  margin-bottom: 20px;
 }
 
 .event {
@@ -137,7 +153,9 @@ a {
   vertical-align: middle;
 }
 
-.event-performer { }
+.event-performer { 
+  font-weight: bold;
+}
 
 .event-venue { }
 
