@@ -1,9 +1,8 @@
 {
   "name": "Gigify",
   "private": true,
-  "dependencies": {
-    "sass-bootstrap": "~3.0.0",
-    "jquery": "~1.10.2"
-  },
-  "devDependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "sass-bootstrap": "~3.0.2"
+  }
 }
