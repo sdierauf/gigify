@@ -36,6 +36,10 @@ handleEventData = (eventData) ->
   eventfulArtistIds = []
   eventsData = []
 
+  if !eventData.events
+    displayNoResults()
+    return
+
   for event in eventData.events.event
     location = event.city_name + ', ' + event.region_abbr
     venue = event.venue_name
@@ -153,6 +157,17 @@ displayPlaylist = (spotifyTrackIds) ->
       id: 'spotify-frame'
     ).hide().appendTo('#spotify-player').fadeIn 1000
 
+
+# Displays a message when no results could be found
+displayNoResults = ->
+  $('#spotify-player').empty()
+  $('#events').empty()
+  $('#upcoming-shows-header').remove()
+  h2 = $('<h2 />',
+    text: 'Could not find results for "' + $('#search-bar').val() + '"...'
+  )
+  h2.css('color', '#90a8a8')
+  h2.hide().appendTo('#spotify-player').fadeIn 500
 
 # Removes duplicate elements from an array
 Array::unique = ->
