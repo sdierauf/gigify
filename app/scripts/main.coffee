@@ -169,6 +169,7 @@ displayNoResults = ->
   h2.css('color', '#90a8a8')
   h2.hide().appendTo('#spotify-player').fadeIn 500
 
+
 # Removes duplicate elements from an array
 Array::unique = ->
   output = {}

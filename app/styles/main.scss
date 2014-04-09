@@ -1,3 +1,4 @@
+// Variables
 $font-stack: 'Open Sans', Arial, sans-serif;
 $primary-color: #34495e;
 $secondary-color: #90a8a8;
@@ -11,6 +12,7 @@ $anchor-hover-color: lighten($anchor-color, 20%);
 
 @import '../bower_components/sass-bootstrap/lib/bootstrap';
 
+// Global styles
 @media (min-width: $screen-sm-min) {
   .container {
     width: $screen-sm-min;
@@ -21,23 +23,7 @@ html, body {
   height: 100%;
 }
 
-#wrap {
-  height: auto;
-  margin: 0 auto -110px;
-  min-height: 100%;
-  padding: 0 0 110px;
-}
-
-#footer {
-  height: 110px;
-  text-align: center;
-}
-
-body {
-  font-family: $font-stack;
-}
-
-h1, h2 {
+body, h1, h2 {
   font-family: $font-stack;
 }
 
@@ -50,6 +36,7 @@ a {
   }
 }
 
+// Header
 #title-header,
 #description-header {
   text-align: center;
@@ -92,15 +79,12 @@ a {
   position: absolute;
 }
 
+// Playlist
 #spotify-header {
   color: $spotify-header-color;
   &:hover {
     color: $spotify-header-hover-color;
   }
-}
-
-#heart-icon {
-  color: $heart-icon-color;
 }
 
 #spotify-player {
@@ -109,14 +93,14 @@ a {
   line-height: 30px;
   margin: 20px 0;
   text-align: center;
+  iframe {
+    height: 370px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
 }
 
-#spotify-player iframe {
-  height: 370px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
+// Events
 #upcoming-shows-header {
   font-weight: 400;
   margin: 20px 0;
@@ -132,7 +116,7 @@ a {
   width: 369px;
 }
 
-@media (max-width: $screen-xs-max) { 
+@media (max-width: $screen-xs-max) {
   .event {
     width: 300px;
   }
@@ -153,7 +137,7 @@ a {
   vertical-align: middle;
 }
 
-.event-performer { 
+.event-performer {
   font-weight: bold;
 }
 
@@ -179,4 +163,21 @@ a {
     position: absolute;
     width: 125px;
   }
+}
+
+// Footer
+#wrap {
+  height: auto;
+  margin: 0 auto -110px;
+  min-height: 100%;
+  padding: 0 0 110px;
+}
+
+#footer {
+  height: 110px;
+  text-align: center;
+}
+
+#heart-icon {
+  color: $heart-icon-color;
 }
